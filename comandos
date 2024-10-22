@@ -1,0 +1,55 @@
+# Criar um arquivo de texto com comentários explicando os comandos do Docker
+
+docker_commands = """
+# Comandos Básicos do Docker
+
+# 1. Verificar Containers em Execução
+# Este comando lista todos os containers que estão atualmente em execução.
+docker ps
+
+# 2. Parar um Container
+# Este comando para um container em execução. Substitua <container_id> pelo ID ou nome do seu container.
+docker stop <container_id>
+
+# 3. Remover um Container
+# Este comando remove um container. Substitua <container_id> pelo ID ou nome do seu container.
+docker rm <container_id>
+
+# 4. Listar Todas as Imagens
+# Este comando lista todas as imagens Docker disponíveis no seu sistema.
+docker images
+
+# 5. Remover uma Imagem
+# Este comando remove uma imagem Docker. Substitua <image_id> pelo ID da imagem que você deseja remover.
+docker rmi <image_id>
+
+# 6. Construir uma Imagem
+# Este comando constrói uma nova imagem a partir de um Dockerfile no diretório atual (indicado por '.').
+# A imagem é nomeada como 'my-apache-site'.
+docker build -t my-apache-site .
+
+# 7. Rodar um Novo Container
+# Este comando executa um novo container com base na imagem 'my-apache-site'.
+# Ele mapeia a porta 80 do container para a porta 3000 do host.
+docker run -d --name my-apache-site -p 3000:80 my-apache-site
+
+# 8. Acessar o Shell de um Container
+# Este comando permite que você acesse o shell de um container em execução.
+# Substitua <container_id> pelo ID ou nome do seu container.
+docker exec -it <container_id> /bin/bash
+# ou use /bin/sh para um shell mais leve
+docker exec -it <container_id> /bin/sh
+
+# 9. Ver Logs de um Container
+# Este comando exibe os logs de um container, útil para depuração.
+# Substitua <container_id> pelo ID ou nome do seu container.
+docker logs <container_id>
+
+# 10. Verificar Portas Usadas no Windows
+# Este comando verifica se uma porta específica está em uso no sistema Windows.
+netstat -ano | findstr :<porta>
+
+# 11. Verificar a Disponibilidade da Porta
+# Este comando é usado para confirmar se a porta foi liberada após a remoção de um container.
+netstat -ano | findstr :<porta>
+"""
