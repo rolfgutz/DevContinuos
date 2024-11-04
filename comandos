@@ -31,7 +31,7 @@ docker build -t my-apache-site .
 # 7. Rodar um Novo Container
 # Este comando executa um novo container com base na imagem 'my-apache-site'.
 # Ele mapeia a porta 80 do container para a porta 3000 do host.
-docker run -d --name my-apache-site -p 3000:80 my-apache-site
+docker run -d --name my-apache-site -p 4001:80 my-apache-site
 
 # 8. Acessar o Shell de um Container
 # Este comando permite que você acesse o shell de um container em execução.
@@ -53,3 +53,31 @@ netstat -ano | findstr :<porta>
 # Este comando é usado para confirmar se a porta foi liberada após a remoção de um container.
 netstat -ano | findstr :<porta>
 """
+
+
+
+1. Instalação do Ubuntu:
+Você instalou o Ubuntu como parte do Windows Subsystem for Linux (WSL) para facilitar o uso de ferramentas de linha de comando.
+2. Configuração do Docker:
+Você configurou o Docker no seu sistema e se deparou com erros de permissão ao tentar executar comandos do Docker no Ubuntu.
+Tentou ajustar as permissões do arquivo docker.sock e, em seguida, tentou editar o arquivo sudoers para permitir que seu usuário executasse comandos sudo sem a necessidade de uma senha.
+3. Criação do Script Bash:
+Criou um script Bash (build_image.sh) para automatizar a construção da imagem Docker e a execução do container.
+O script inclui as seguintes etapas:
+Definição de Variáveis: Especifica o nome da imagem e do container.
+Construção da Imagem: Usa docker build para criar a imagem a partir do Dockerfile.
+Parada e Remoção do Container: Para e remove um container existente, se ele já existir.
+Execução do Container: Executa o container e faz o mapeamento de portas.
+Verificação de Erros: Inclui mensagens de erro e sucesso para cada etapa.
+4. Execução do Script:
+Você tentou executar o script, mas enfrentou problemas de permissão, especialmente em relação ao Docker e ao acesso ao socket.
+5. Resolução de Problemas:
+Tentou várias abordagens para resolver erros de permissão e executar comandos Docker sem a necessidade de senha.
+Considerou usar o cmd do Windows para configurações relacionadas ao Docker e permissões de usuário.
+
+permissao do arquivo 
+s> chmod +x build_image.sh
+
+#para iniciar ubundo e mandar a criacao do script 
+wsl -d Ubuntu
+./build_image.sh
