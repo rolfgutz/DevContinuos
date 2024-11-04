@@ -13,7 +13,7 @@ pipeline {
     }
     stage('Deploy'){
         steps{
-            sh 'build_image.sh'
+            sh './build_image.sh'
         }
     }
 }
